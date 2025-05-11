@@ -1,95 +1,3 @@
-// "use client";
-// import {
-//   VerticalTimeline,
-//   VerticalTimelineElement,
-//   WorkIcon,
-//   SchoolIcon,
-//   StarIcon,
-// } from "react-vertical-timeline-component";
-// import "react-vertical-timeline-component/style.min.css";
-
-// import React from "react";
-
-// const Timeline = () => {
-//   return (
-//     <>
-//       <VerticalTimeline>
-//         {/* 1 */}
-//         <VerticalTimelineElement
-//           className="vertical-timeline-element--work"
-//           contentStyle={{ background: "#1A1A1A", color: "#fff" }}
-//           contentArrowStyle={{ borderRight: "7px solid  #f9004d" }}
-//           date="2024 - present"
-//           iconStyle={{ background: "#f9004d", color: "#fff" }}
-//           // icon={<WorkIcon />}
-//         >
-//           <h3 className="vertical-timeline-element-title">
-//             BSC in Computer Science & Engineering
-//           </h3>
-//           <h4 className="vertical-timeline-element-subtitle">
-//             Premier University Chittagong
-//           </h4>
-//         </VerticalTimelineElement>
-//         {/* 2 */}
-//         <VerticalTimelineElement
-//           className="vertical-timeline-element--work"
-//           contentStyle={{ background: "#1A1A1A", color: "#fff" }}
-//           contentArrowStyle={{ borderRight: "7px solid  #f9004d" }}
-//           date="2024"
-//           iconStyle={{ background: "#f9004d", color: "#fff" }}
-//           // icon={<WorkIcon />}
-//         >
-//           <h3 className="vertical-timeline-element-title">
-//             Complete Web Devolopment Bootcamp
-//           </h3>
-//           <h4 className="vertical-timeline-element-subtitle">
-//             Programing Hero
-//           </h4>
-//         </VerticalTimelineElement>
-//         {/* 3 */}
-//         <VerticalTimelineElement
-//           className="vertical-timeline-element--work"
-//           contentStyle={{ background: "#1A1A1A", color: "#fff" }}
-//           contentArrowStyle={{ borderRight: "7px solid  #f9004d" }}
-//           date="2022 - 2023"
-//           iconStyle={{ background: "#f9004d", color: "#fff" }}
-//           // icon={<WorkIcon />}
-//         >
-//           <h3 className="vertical-timeline-element-title">
-//             {"Higher Secondery School Certificate (Grade 12)"}
-//           </h3>
-//           <h4 className="vertical-timeline-element-subtitle">
-//             Dewanhat City Corporation College
-//           </h4>
-//         </VerticalTimelineElement>
-//         {/* 1 */}
-//         <VerticalTimelineElement
-//           className="vertical-timeline-element--work"
-//           contentStyle={{ background: "#1A1A1A", color: "#fff" }}
-//           contentArrowStyle={{ borderRight: "7px solid  #f9004d" }}
-//           date="2020 - 2021"
-//           iconStyle={{ background: "#f9004d", color: "#fff" }}
-//           // icon={<WorkIcon />}
-//         >
-//           <h3 className="vertical-timeline-element-title">
-//             {"Seniour School Certificate (Grade 10)"}
-//           </h3>
-//           <h4 className="vertical-timeline-element-subtitle">
-//             Premier University Chittagong
-//           </h4>
-//         </VerticalTimelineElement>
-
-//         <VerticalTimelineElement
-//           iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
-//           // icon={<StarIcon />}
-//         />
-//       </VerticalTimeline>
-//     </>
-//   );
-// };
-
-// export default Timeline;
-
 "use client";
 import React, { useState, useEffect } from "react";
 import {
@@ -105,7 +13,7 @@ import {
   FaBookReader,
 } from "react-icons/fa";
 
-const Timeline = () => {
+const My_Journey = () => {
   // State to track viewport width for responsive design
   const [isMobile, setIsMobile] = useState(false);
 
@@ -388,4 +296,4 @@ const Timeline = () => {
   );
 };
 
-export default Timeline;
+export default My_Journey;

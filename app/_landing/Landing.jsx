@@ -1,6 +1,8 @@
-import About from "./about/About";
+import Footer from "./Footer/Footer";
 import Header from "./header/Header";
+import My_Journey from "./my_journey/My_Journey";
 import Navbar from "./navbar/Navbar";
+import TechStack from "./TechStack/TechStack";
 
 // app/components/Greeting.js
 export default function Landing() {
@@ -10,7 +12,15 @@ export default function Landing() {
         <Navbar />
         <Header />
       </div>
-      <About />
+      <div>
+        <My_Journey />
+      </div>
+      <div className="mt-20">
+        <TechStack />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }
