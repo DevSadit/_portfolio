@@ -18,8 +18,8 @@ const HeadText = () => {
   }, []);
 
   return (
-    <div className="mt-10 flex text-center justify-center items-center">
-      <h1 className="text-4xl md:text-7xl uppercase leading-tight font-black">
+    <div className="flex text-center justify-center items-center ">
+      <h1 className="text-4xl h-60 md:text-7xl uppercase leading-tight font-black">
         Hi, I'm <br />
         <span className="text-[#f9004d]">Shahmiraj Ehesan</span> <br />
         <span id="type"></span>

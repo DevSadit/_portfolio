@@ -1,3 +1,4 @@
+import About from "./about/About";
 import Header from "./header/Header";
 import Navbar from "./navbar/Navbar";
 
@@ -5,8 +6,11 @@ import Navbar from "./navbar/Navbar";
 export default function Landing() {
   return (
     <div>
-      <Navbar />
-      <Header />
+      <div className="h-lvh">
+        <Navbar />
+        <Header />
+      </div>
+      <About />
     </div>
   );
 }
