@@ -16,18 +16,18 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Main Demo",
-      image: "/projects/main-demo.jpg", // Replace with your actual image path
-      category: "Web Development",
+      title: "Zenzep - Blogs Website",
+      image: "/projects/one.png",
+      category: "Blog",
       tag: "Trending",
       tagColor: "bg-gradient-to-r from-blue-400 to-cyan-400", // Blue gradient for "Trending"
       link: "/projects/main-demo",
     },
     {
       id: 2,
-      title: "Main Demo Light",
-      image: "/projects/main-demo-light.jpg",
-      category: "UI Design",
+      title: "Travel Website",
+      image: "/projects/two.png",
+      category: "Travel",
       tag: null, // No tag for this one
       link: "/projects/main-demo-light",
     },
@@ -63,13 +63,12 @@ export default function Projects() {
                     hoveredProject === project.id ? "scale-110" : "scale-100"
                   }`}
                 >
-                  {/* Note: Replace the div below with actual Image component when you have images */}
-                  {/* <Image
-                    src={project.image} 
+                  <Image
+                    src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover"
-                  /> */}
+                  />
 
                   {/* Placeholder div - remove this and uncomment Image above when you have actual images */}
                   <div className="w-full h-full bg-gray-700 flex items-center justify-center">
@@ -96,13 +95,7 @@ export default function Projects() {
               </div>
 
               {/* Hover Overlay - Only visible on hover */}
-              <div
-                className={`absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center transform transition-opacity duration-300 ${
-                  hoveredProject === project.id
-                    ? "opacity-100"
-                    : "opacity-0 pointer-events-none"
-                }`}
-              >
+              <div>
                 <Link
                   href={project.link}
                   className="px-6 py-3 bg-[#F9004D] text-white font-medium rounded hover:bg-opacity-90 transition-all"
