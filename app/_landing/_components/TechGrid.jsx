@@ -1,9 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function TechGrid() {
   const [hoveredTech, setHoveredTech] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Use useEffect to mark component as mounted
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // DO NOT modify this techList as per your request
   const techList = [
@@ -97,23 +103,14 @@ export default function TechGrid() {
   ];
 
   // Group by categories
-  const frontendTech = [];
-  const backendTech = [];
-  const versionControlTech = [];
-  const deploymentTech = [];
-
-  for (let i = 0; i < techList.length; i++) {
-    const tech = techList[i];
-    if (tech.category === "Frontend") {
-      frontendTech.push(tech);
-    } else if (tech.category === "Backend") {
-      backendTech.push(tech);
-    } else if (tech.category === "Version Control") {
-      versionControlTech.push(tech);
-    } else if (tech.category === "Deployment") {
-      deploymentTech.push(tech);
-    }
-  }
+  const frontendTech = techList.filter((tech) => tech.category === "Frontend");
+  const backendTech = techList.filter((tech) => tech.category === "Backend");
+  const versionControlTech = techList.filter(
+    (tech) => tech.category === "Version Control"
+  );
+  const deploymentTech = techList.filter(
+    (tech) => tech.category === "Deployment"
+  );
 
   // Render UI
   function renderTechSection(title, items) {
@@ -123,14 +120,15 @@ export default function TechGrid() {
           {title}
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-          {items.map(function (tech) {
-            const isHovered = hoveredTech === tech.name;
+          {items.map((tech) => {
+            // Only apply hover effects if mounted (client-side)
+            const isHovered = isMounted && hoveredTech === tech.name;
 
             return (
               <div
                 key={tech.name}
-                onMouseEnter={() => setHoveredTech(tech.name)}
-                onMouseLeave={() => setHoveredTech(null)}
+                onMouseEnter={() => isMounted && setHoveredTech(tech.name)}
+                onMouseLeave={() => isMounted && setHoveredTech(null)}
                 className="group"
               >
                 <div

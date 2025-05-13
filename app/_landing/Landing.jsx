@@ -9,7 +9,7 @@ import TechStack from "./TechStack/TechStack";
 export default function Landing() {
   return (
     <div>
-      <div className="h-lvh">
+      <div className="min-h-screen">
         <Navbar />
         <Header />
       </div>
@@ -19,7 +19,7 @@ export default function Landing() {
       <div className="mt-20">
         <TechStack />
       </div>
-      <div>
+      <div className="min-h-screen">
         <Projects />
       </div>
       <div>

@@ -1,4 +1,4 @@
-// Server component
+"use client";
 
 import TechGrid from "../_components/TechGrid";
 
@@ -11,8 +11,8 @@ export default function TechStack() {
       <p className="text-base md:text-lg text-gray-400">
         Technologies I've been working with currently
       </p>
-      <div className="w-full text-white h-screen py-6 px-4">
-        <div className="max-w-5xl mx-auto h-full">
+      <div className="w-full text-white py-6 px-4">
+        <div className="max-w-5xl mx-auto">
           <TechGrid />
         </div>
       </div>

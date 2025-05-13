@@ -1,129 +1,119 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Projects() {
-  // State to track which project is being hovered
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Project data with title, description, and icon color
+  // Set isMounted to true when component mounts to prevent hydration issues
+  useState(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Project data array - you can replace with your actual projects
   const projects = [
     {
       id: 1,
-      title: "Business Strategy",
-      description:
-        "Create visual plans showing the full scope of your project to keep you on track for success.",
-      iconColor: "bg-red-500",
-      iconClass: "i-business",
+      title: "Main Demo",
+      image: "/projects/main-demo.jpg", // Replace with your actual image path
+      category: "Web Development",
+      tag: "Trending",
+      tagColor: "bg-gradient-to-r from-blue-400 to-cyan-400", // Blue gradient for "Trending"
+      link: "/projects/main-demo",
     },
     {
       id: 2,
-      title: "App Development",
-      description:
-        "A wide collection of over 500 pre-built components to create modern mobile and web applications.",
-      iconColor: "bg-blue-500",
-      iconClass: "i-mobile",
-    },
-    {
-      id: 3,
-      title: "Web Development",
-      description:
-        "Create visual apps showing the full scope of your project to keep you on track for success.",
-      iconColor: "bg-pink-500",
-      iconClass: "i-web",
-    },
-    {
-      id: 4,
-      title: "SEO Marketing",
-      description:
-        "Optimize your content and improve your search engine rankings with advanced SEO strategies.",
-      iconColor: "bg-purple-500",
-      iconClass: "i-seo",
+      title: "Main Demo Light",
+      image: "/projects/main-demo-light.jpg",
+      category: "UI Design",
+      tag: null, // No tag for this one
+      link: "/projects/main-demo-light",
     },
   ];
 
   return (
-    <div className="w-full py-16 px-4 text-gray-800 dark:text-white">
-      {/* Main container */}
+    <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Section Title */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">What I Do</h2>
-          <div className="w-16 h-1 bg-pink-500"></div>
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+            My <span className="text-[#F9004D]">Projects</span>
+          </h2>
+          <p className="text-base md:text-lg text-gray-400 max-w-xl mx-auto">
+            Check out some of my latest projects and works that showcase my
+            skills and expertise
+          </p>
         </div>
 
-        {/* Projects Grid - 2 columns on medium screens and above */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="relative"
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
+              className="group relative overflow-hidden rounded-lg transition-all duration-300"
+              onMouseEnter={() => isMounted && setHoveredProject(project.id)}
+              onMouseLeave={() => isMounted && setHoveredProject(null)}
             >
-              {/* Project Card */}
-              <div
-                className={`
-                  relative p-6 md:p-8 rounded-lg overflow-hidden
-                  transition-all duration-500 ease-in-out transform
-                  ${
-                    hoveredProject === project.id
-                      ? "bg-white dark:bg-gray-800 shadow-xl scale-105 border-t-4 border-pink-500"
-                      : "bg-gray-100 dark:bg-gray-900"
-                  }
-                `}
-              >
-                {/* Icon */}
-                <div className="mb-4">
-                  <div
-                    className={`w-12 h-12 rounded-lg flex items-center justify-center ${project.iconColor} text-white`}
-                  >
-                    {/* Using placeholder element for icon - you would replace with actual icons */}
-                    <div className="w-6 h-6">
-                      <img
-                        src="/api/placeholder/24/24"
-                        alt={project.title}
-                        className="w-full h-full"
-                      />
-                    </div>
+              {/* Project Image */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
+                <div
+                  className={`w-full h-full bg-gray-700 transition-transform duration-500 ${
+                    hoveredProject === project.id ? "scale-110" : "scale-100"
+                  }`}
+                >
+                  {/* Note: Replace the div below with actual Image component when you have images */}
+                  {/* <Image
+                    src={project.image} 
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  /> */}
+
+                  {/* Placeholder div - remove this and uncomment Image above when you have actual images */}
+                  <div className="w-full h-full bg-gray-700 flex items-center justify-center">
+                    <span className="text-gray-500">{project.title} Image</span>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div>
-                  <h3
-                    className={`text-xl font-bold mb-3 transition-colors duration-300 ${
-                      hoveredProject === project.id ? "text-pink-500" : ""
-                    }`}
+                {/* Tag (if exists) */}
+                {project.tag && (
+                  <div
+                    className={`absolute top-4 right-4 px-4 py-1 rounded text-white text-sm font-medium ${project.tagColor}`}
                   >
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Bottom Line - visible only on hover */}
-                <div
-                  className={`
-                  absolute bottom-0 left-0 h-1 bg-gradient-to-r from-pink-500 to-purple-500
-                  transition-all duration-500 ease-in-out
-                  ${hoveredProject === project.id ? "w-full" : "w-0"}
-                `}
-                ></div>
+                    {project.tag}
+                  </div>
+                )}
               </div>
 
-              {/* Box shadow overlay effect */}
+              {/* Project Info */}
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-80 transform transition-transform duration-300 ease-in-out">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 text-sm">{project.category}</p>
+              </div>
+
+              {/* Hover Overlay - Only visible on hover */}
               <div
-                className={`
-                absolute inset-0 rounded-lg bg-gradient-to-r from-pink-500/20 to-purple-500/20 opacity-0
-                transition-opacity duration-500 pointer-events-none
-                ${hoveredProject === project.id ? "opacity-100" : ""}
-              `}
-              ></div>
+                className={`absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center transform transition-opacity duration-300 ${
+                  hoveredProject === project.id
+                    ? "opacity-100"
+                    : "opacity-0 pointer-events-none"
+                }`}
+              >
+                <Link
+                  href={project.link}
+                  className="px-6 py-3 bg-[#F9004D] text-white font-medium rounded hover:bg-opacity-90 transition-all"
+                >
+                  View Project
+                </Link>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
