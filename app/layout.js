@@ -1,6 +1,7 @@
 // layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ClientComponents from "./_landing/_components/ClientComponents";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,19 +16,16 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Sh Ehesan",
   description: "A Web Developer",
+  colorScheme: "dark", // Add color scheme to metadata instead of using meta tag
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <head>
-        {/* Force dark mode with meta tag */}
-        <meta name="color-scheme" content="dark" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black dark:bg-black min-h-screen`}
       >
-        {children}
+        <ClientComponents>{children}</ClientComponents>
       </body>
     </html>
   );

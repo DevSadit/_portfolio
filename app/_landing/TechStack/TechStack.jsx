@@ -4,7 +4,7 @@ import TechGrid from "../_components/TechGrid";
 
 export default function TechStack() {
   return (
-    <div className="text-center min-h-screen">
+    <div id="techstack" className="text-center min-h-screen">
       <h2 className="text-3xl md:text-5xl font-bold mb-2 bg-gradient-to-r text-white bg-clip-text">
         My <span className="text-[#F9004D]">Tech</span> Stack
       </h2>

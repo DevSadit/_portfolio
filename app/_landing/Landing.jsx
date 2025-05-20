@@ -9,8 +9,8 @@ import TechStack from "./TechStack/TechStack";
 export default function Landing() {
   return (
     <div>
+      <Navbar />
       <div className="min-h-screen">
-        <Navbar />
         <Header />
       </div>
       <div>
@@ -22,9 +22,7 @@ export default function Landing() {
       <div className="min-h-screen">
         <Projects />
       </div>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

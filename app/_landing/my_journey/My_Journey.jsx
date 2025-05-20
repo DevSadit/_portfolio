@@ -49,7 +49,7 @@ const My_Journey = () => {
     : "0 0 10px #10cc52, 0 0 20px rgba(16, 204, 82, 0.5)";
 
   return (
-    <div className=" min-h-screen">
+    <div id="education" className=" min-h-screen">
       <div className="mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-white relative">
           {/* <span className="relative inline-block">My Journey</span> */}

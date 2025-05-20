@@ -66,7 +66,7 @@ export default function Projects() {
   ];
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 px-3 sm:px-4">
+    <section id="projects" className="py-8 sm:py-12 md:py-16 px-3 sm:px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10 md:mb-12">

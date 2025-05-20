@@ -27,6 +27,11 @@
   }
 } */
 
+/* Removing default smooth scroll since we're using GSAP/Lenis */
+html {
+  /* scroll-behavior: smooth; */
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
