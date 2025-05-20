@@ -1,3 +1,4 @@
+// layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -18,9 +19,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
+      <head>
+        {/* Force dark mode with meta tag */}
+        <meta name="color-scheme" content="dark" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black dark:bg-black min-h-screen`}
       >
         {children}
       </body>

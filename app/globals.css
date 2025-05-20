@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
+  /* Default colors - won't be used due to forced dark mode */
   --background: #ffffff;
   --foreground: #171717;
+}
+
+/* Force dark theme for all users regardless of browser preference */
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,15 +19,16 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* Remove media query since we're forcing dark mode */
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
 }

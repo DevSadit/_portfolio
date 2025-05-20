@@ -51,8 +51,9 @@ const My_Journey = () => {
   return (
     <div className=" min-h-screen">
       <div className="mx-auto">
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-white relative">
-          <span className="relative inline-block">{"< My Journey />"}</span>
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-white relative">
+          {/* <span className="relative inline-block">My Journey</span> */}
+          My <span className="text-[#F9004D]">Journey</span>
         </h2>
 
         <VerticalTimeline {...animationOptions} className="custom-timeline">
@@ -249,14 +250,6 @@ const My_Journey = () => {
             </div>
           </VerticalTimelineElement>
 
-          <VerticalTimelineElement
-            iconStyle={{
-              background: "rgb(16, 204, 82)",
-              color: "#fff",
-              boxShadow: greenGlowEffect,
-            }}
-            icon={<FaStar />}
-          />
         </VerticalTimeline>
       </div>
 

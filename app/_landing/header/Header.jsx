@@ -4,12 +4,12 @@ import Boxes from "../_components/Boxes";
 
 const Header = () => {
   return (
-    <div className="mt-32">
+    <div className="container mx-auto">
       {/* head text */}
       <Head_text />
 
       {/* 3 boxes */}
-      <div className="text-gray-400 mt-14 py-12 px-4 md:px-16">
+      <div className="text-gray-400 mt-14 py-8 mx-2 md:mx-0">
         <Boxes />
       </div>
     </div>
