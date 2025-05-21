@@ -111,18 +111,18 @@ const Navbar = () => {
         }`}
       ref={navRef}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 py-4 md:py-5">
+      <div className="w-full max-w-[100vw] flex items-center justify-between px-2 sm:px-4 py-3 md:py-5 mx-auto">
         {/* Logo */}
         <div className="flex items-center">
-          <h2 className="text-2xl md:text-3xl uppercase font-bold tracking-wider">
+          <h2 className="text-xl xs:text-2xl md:text-3xl uppercase font-bold tracking-wider">
             <span className="text-[#f9004d]">E</span>hsan
           </h2>
         </div>
 
         {/* Mobile controls - Resume button and hamburger */}
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-2 xs:gap-3 md:hidden">
           {/* Resume button for mobile */}
-          <Link target="_blank" href="https://drive.google.com/file/d/1yXDj3QH4rJcz12jEfg-S5fOZ3tSzGhBz/view?usp=drive_link" suppressHydrationWarning className="bg-[#f9004d] px-3 py-1.5 rounded text-sm font-medium transition-all duration-300 hover:bg-[#d0003d] active:scale-95">
+          <Link target="_blank" href="https://drive.google.com/file/d/1yXDj3QH4rJcz12jEfg-S5fOZ3tSzGhBz/view?usp=drive_link" suppressHydrationWarning className="bg-[#f9004d] px-2 xs:px-3 py-1 xs:py-1.5 rounded text-xs xs:text-sm font-medium transition-all duration-300 hover:bg-[#d0003d] active:scale-95">
             Resume
           </Link>
 
@@ -131,7 +131,7 @@ const Navbar = () => {
             type="button"
             onClick={toggleMenu}
             suppressHydrationWarning
-            className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none z-50 transition-colors duration-200"
+            className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none z-[60] transition-colors duration-200"
             aria-expanded={menuOpen ? "true" : "false"}
           >
             <span className="sr-only">Open main menu</span>
@@ -191,8 +191,9 @@ const Navbar = () => {
       {/* Mobile navigation overlay - Fixed position, covers entire screen */}
       {isMounted && (
         <div
-          className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-40 md:hidden transition-all duration-300 ${menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
+          className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-40 md:hidden transition-all duration-500 ease-in-out ${
+            menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
           aria-hidden="true"
         ></div>
       )}
@@ -201,15 +202,25 @@ const Navbar = () => {
       {isMounted && (
         <div
           ref={menuRef}
-          className={`fixed top-0 right-0 z-40 w-4/5 max-w-sm h-screen bg-gradient-to-b from-gray-900 to-black shadow-xl transform transition-all duration-500 ease-in-out ${menuOpen ? "translate-x-0" : "translate-x-full"
-            } md:hidden overflow-y-auto`}
+          className={`fixed top-0 right-0 z-50 w-full max-w-xs xs:max-w-sm h-screen bg-gradient-to-b from-gray-900 to-black shadow-xl transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            menuOpen 
+              ? "translate-x-0 opacity-100 visible" 
+              : "translate-x-full opacity-0 invisible"
+          } md:hidden overflow-y-auto`}
         >
-          <div className="px-6 pt-20 pb-6 space-y-1 h-full flex flex-col">
-            {navLinks.map((link) => (
+          <div className={`px-4 xs:px-6 pt-20 pb-6 space-y-1 h-full flex flex-col transition-all duration-700 delay-100 ${
+            menuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+          }`}>
+            {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-3.5 text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200 transform hover:translate-x-1"
+                className={`block px-3 xs:px-4 py-3 text-base xs:text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200 transform hover:translate-x-1 ${
+                  menuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                }`}
+                style={{ 
+                  transitionDelay: menuOpen ? `${150 + index * 50}ms` : '0ms'
+                }}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.name}
