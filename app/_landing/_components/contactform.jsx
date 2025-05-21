@@ -78,8 +78,10 @@ export default function ContactForm() {
     return (
         <div className="w-full max-w-2xl mx-auto">
             <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold mb-4 text-white">Contact <span className="text-[#F9004D]">Me</span></h2>
-                <p className="text-gray-400 text-lg">Feel free to reach out if you have any questions or opportunities!</p>
+            <h2 className="text-2xl text-[#F9004D] md:text-4xl font-bold mb-2 bg-gradient-to-r bg-clip-text">
+        Contact
+      </h2>
+      <p className="text-base md:text-lg text-gray-400 max-w-xl mx-auto">Feel free to reach out if you have any questions or opportunities!</p>
             </div>
 
             <form

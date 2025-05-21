@@ -49,14 +49,14 @@ const My_Journey = () => {
     : "0 0 10px #10cc52, 0 0 20px rgba(16, 204, 82, 0.5)";
 
   return (
-    <div id="education" className=" min-h-screen">
+    <div id="journey" className=" min-h-screen">
       <div className="mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-white relative">
-          {/* <span className="relative inline-block">My Journey</span> */}
+        <h2 className="text-3xl mb-2 text-center md:text-5xl font-bold bg-gradient-to-r text-white bg-clip-text">
           My <span className="text-[#F9004D]">Journey</span>
         </h2>
+        <p className="text-base mb-6 text-center md:text-lg text-gray-400 max-w-xl mx-auto">From learning HTML late at night to building full projects with React, my journey as a developer has been full of challenges, growth, and passion.</p>
 
-        <VerticalTimeline {...animationOptions} className="custom-timeline">
+        <VerticalTimeline {...animationOptions} className="custom-timeline ">
           {/* University Education */}
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
@@ -140,7 +140,7 @@ const My_Journey = () => {
                   React
                 </span>
                 <span className="bg-pink-900 bg-opacity-50 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-pink-200">
-                  Node.js
+                  Next Js
                 </span>
                 <span className="bg-pink-900 bg-opacity-50 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-pink-200">
                   MongoDB
@@ -151,7 +151,7 @@ const My_Journey = () => {
               </div>
               <div className="mt-3 sm:mt-4 p-2 sm:p-3 bg-pink-900 bg-opacity-20 rounded-lg border-l-2 sm:border-l-4 border-pink-500">
                 <p className="text-xs sm:text-sm italic text-gray-300">
-                  Completed 5+ real-world projects with focus on responsive
+                  Completed 3+ real-world projects with focus on responsive
                   design and user experience
                 </p>
               </div>
@@ -186,8 +186,7 @@ const My_Journey = () => {
               </h4>
               <div className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">
                 <p>
-                  Focused on science and mathematics with computer science
-                  electives.
+                  Focused on science and mathematics with c++ basics.
                 </p>
               </div>
               <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-3">
@@ -228,12 +227,11 @@ const My_Journey = () => {
                 Senior School Certificate (Grade 10)
               </h3>
               <h4 className="vertical-timeline-element-subtitle text-lg sm:text-xl mb-2 sm:mb-3 text-gray-300">
-                Premier University Chittagong
+                Patenga High School
               </h4>
               <div className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">
                 <p>
-                  Built strong foundation in science and mathematics with
-                  introduction to basic programming.
+                  Built strong foundation in science and mathematics.
                 </p>
               </div>
               <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-3">
@@ -243,9 +241,7 @@ const My_Journey = () => {
                 <span className="bg-pink-900 bg-opacity-50 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-pink-200">
                   Mathematics
                 </span>
-                <span className="bg-pink-900 bg-opacity-50 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-pink-200">
-                  Computer Basics
-                </span>
+
               </div>
             </div>
           </VerticalTimelineElement>

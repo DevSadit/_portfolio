@@ -18,7 +18,7 @@ const HeadText = () => {
   }, []);
 
   return (
-    <div className="flex text-center justify-center items-center ">
+    <div className="flex text-center justify-center items-center mt-20 md:mt-24 lg:mt-28">
       <h1 className="text-4xl h-60 md:text-7xl uppercase leading-tight font-black">
         Hi, I'm <br />
         <span className="text-[#f9004d]">Shahmiraj Ehesan</span> <br />

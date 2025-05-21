@@ -43,14 +43,14 @@ export default function ContactPage() {
   
 
   return (
-    <div id="contact" className="min-h-screen bg-[#0A0A0A] py-20">
+    <div id="contact" className="min-h-screen bg-[#0A0A0A] mb-10">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold text-white mb-6">Get In <span className="text-[#F9004D]">Touch</span></h1>
-            <p className="text-gray-400 text-xl max-w-2xl mx-auto">
-              I'm always interested in hearing about new projects and opportunities. Drop me a message and let's create something amazing together.
-            </p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-2 bg-gradient-to-r text-white bg-clip-text">
+        Get in <span className="text-[#F9004D]">Touch</span>
+      </h2>
+      <p className="text-base md:text-lg text-gray-400 max-w-xl mx-auto">{"Whether it’s a collaboration, a project idea, or just a quick chat, I’m always open to new connections"}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

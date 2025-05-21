@@ -8,45 +8,41 @@ const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const navRef = useRef(null);
   const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   // Prevent hydration issues
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  // Handle scroll events to show/hide navbar
+  // Handle navbar visibility on scroll
   useEffect(() => {
-    if (!isMounted) return;
-
     const controlNavbar = () => {
-      const currentScrollY = window.scrollY;
-
-      // Show navbar at the top of the page or when scrolling up
-      if (currentScrollY < 100 || currentScrollY < lastScrollY) {
-        setVisible(true);
-      } else {
-        // Hide navbar when scrolling down
-        setVisible(false);
+      if (typeof window !== 'undefined') {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down
+          setVisible(false);
+        } else {
+          // Scrolling up
+          setVisible(true);
+        }
+        
+        setLastScrollY(currentScrollY);
       }
-
-      // Update scroll position
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', controlNavbar);
-
-    // Cleanup
+    
     return () => {
       window.removeEventListener('scroll', controlNavbar);
     };
-  }, [lastScrollY, isMounted]);
+  }, [lastScrollY]);
 
   // Close menu when screen size changes to desktop
   useEffect(() => {
-    if (!isMounted) return;
-
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setMenuOpen(false);
@@ -55,42 +51,27 @@ const Navbar = () => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isMounted]);
+  }, []);
 
-  // Handle outside click to close menu
+  // Handle click outside to close menu
   useEffect(() => {
-    if (!isMounted) return;
-
-    const handleOutsideClick = (event) => {
+    const handleClickOutside = (event) => {
       if (
-        menuOpen &&
-        navRef.current &&
-        !navRef.current.contains(event.target) &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target)
+        menuOpen && 
+        menuRef.current && 
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
       ) {
         setMenuOpen(false);
       }
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, [menuOpen, isMounted]);
-
-  // Handle body scroll lock when menu is open
-  useEffect(() => {
-    if (!isMounted) return;
-
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.body.style.overflow = "auto";
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuOpen, isMounted]);
+  }, [menuOpen]);
 
   // Handle toggle menu
   const toggleMenu = () => {
@@ -99,39 +80,34 @@ const Navbar = () => {
 
   // Navigation links
   const navLinks = [
-    { name: "Journey", href: "#education" },
-    { name: "Techstack", href: "#techstack" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Journey", href: "#journey" },
+    { name: "Project", href: "#projects" },
+    { name: "TechStack", href: "#techstack" },
+    { name: "Contact Me", href: "#contact" },
   ];
 
   return (
-    <nav
-      className={`backdrop-blur-sm bg-black/10 sticky top-0 z-50 border-b border-gray-800 transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'
-        }`}
-      ref={navRef}
-    >
-      <div className="w-full max-w-[100vw] flex items-center justify-between px-2 sm:px-4 py-3 md:py-5 mx-auto">
+    <nav className={`fixed top-0 left-0 right-0 z-50 px-4 py-3 md:py-4 bg-gray-900/30 backdrop-blur-[2px] shadow-sm transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className="mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <h2 className="text-xl xs:text-2xl md:text-3xl uppercase font-bold tracking-wider">
+          <h2 className="text-2xl md:text-3xl uppercase font-bold">
             <span className="text-[#f9004d]">E</span>hsan
           </h2>
         </div>
 
-        {/* Mobile controls - Resume button and hamburger */}
-        <div className="flex items-center gap-2 xs:gap-3 md:hidden">
-          {/* Resume button for mobile */}
-          <Link target="_blank" href="https://drive.google.com/file/d/1yXDj3QH4rJcz12jEfg-S5fOZ3tSzGhBz/view?usp=drive_link" suppressHydrationWarning className="bg-[#f9004d] px-2 xs:px-3 py-1 xs:py-1.5 rounded text-xs xs:text-sm font-medium transition-all duration-300 hover:bg-[#d0003d] active:scale-95">
+        {/* Mobile Resume Button - Left of Hamburger */}
+        <div className="flex items-center md:hidden">
+          <Link target="_blank" href="https://drive.google.com/file/d/1yXDj3QH4rJcz12jEfg-S5fOZ3tSzGhBz/view?usp=sharing" className="mr-3 bg-[#f9004d] px-3 py-1.5 rounded text-sm transition-transform duration-300 hover:shadow-md">
             Resume
           </Link>
-
-          {/* Hamburger button */}
+          
+          {/* Hamburger button - only visible on mobile */}
           <button
+            ref={buttonRef}
             type="button"
             onClick={toggleMenu}
-            suppressHydrationWarning
-            className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none z-[60] transition-colors duration-200"
+            className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
             aria-expanded={menuOpen ? "true" : "false"}
           >
             <span className="sr-only">Open main menu</span>
@@ -176,59 +152,50 @@ const Navbar = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-gray-300 font-medium transition-all duration-300 hover:text-white relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-[#f9004d] after:transition-all after:duration-300 hover:after:w-full"
+              className="text-gray-400 transition-colors duration-300 hover:text-white"
             >
               {link.name}
             </Link>
           ))}
-          <Link target="_blank" href="https://drive.google.com/file/d/1yXDj3QH4rJcz12jEfg-S5fOZ3tSzGhBz/view?usp=drive_link" suppressHydrationWarning className="bg-[#f9004d] px-5 py-2 rounded 
-          text-base font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f9004d]/20 active:translate-y-0">
+          <Link target="_blank" href="https://drive.google.com/file/d/1yXDj3QH4rJcz12jEfg-S5fOZ3tSzGhBz/view?usp=sharing" className="bg-[#f9004d] px-4 py-2 rounded text-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
             Resume
           </Link>
         </div>
       </div>
 
-      {/* Mobile navigation overlay - Fixed position, covers entire screen */}
-      {isMounted && (
-        <div
-          className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-40 md:hidden transition-all duration-500 ease-in-out ${
-            menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
-          aria-hidden="true"
-        ></div>
-      )}
-
-      {/* Mobile navigation - slides in from right side */}
-      {isMounted && (
-        <div
-          ref={menuRef}
-          className={`fixed top-0 right-0 z-50 w-full max-w-xs xs:max-w-sm h-screen bg-gradient-to-b from-gray-900 to-black shadow-xl transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            menuOpen 
-              ? "translate-x-0 opacity-100 visible" 
-              : "translate-x-full opacity-0 invisible"
-          } md:hidden overflow-y-auto`}
-        >
-          <div className={`px-4 xs:px-6 pt-20 pb-6 space-y-1 h-full flex flex-col transition-all duration-700 delay-100 ${
-            menuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
-          }`}>
-            {navLinks.map((link, index) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`block px-3 xs:px-4 py-3 text-base xs:text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200 transform hover:translate-x-1 ${
-                  menuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                }`}
-                style={{ 
-                  transitionDelay: menuOpen ? `${150 + index * 50}ms` : '0ms'
-                }}
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+      {/* Mobile navigation - with enhanced beautiful transition */}
+      <div
+        ref={menuRef}
+        className={`
+          absolute left-0 right-0 top-full z-20 w-full bg-[#0C0E13] border-b border-gray-300 md:hidden
+          transform transition-all duration-500 ease-in-out overflow-hidden backdrop-blur-sm
+          ${menuOpen ? "max-h-[300px] opacity-100 scale-y-100" : "max-h-0 opacity-0 scale-y-95"}
+        `}
+      >
+        <div className="px-2 py-4 space-y-3 flex flex-col items-center">
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`
+                block px-5 py-2.5 text-base font-medium text-gray-300 hover:text-white 
+                hover:bg-[#f9004d]/20 rounded-md transition-all duration-300
+                ${menuOpen ? `animate-fadeIn` : ''}
+              `}
+              style={{ 
+                animationDelay: `${index * 100}ms`,
+                transform: menuOpen ? 'translateY(0)' : 'translateY(20px)',
+                opacity: menuOpen ? 1 : 0,
+                transition: `transform 400ms ease ${index * 50}ms, opacity 400ms ease ${index * 50}ms` 
+              }}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+        
         </div>
-      )}
+      </div>
     </nav>
   );
 };

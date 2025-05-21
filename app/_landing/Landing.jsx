@@ -9,9 +9,9 @@ import TechStack from "./TechStack/TechStack";
 // app/components/Greeting.js
 export default function Landing() {
   return (
-    <div>
-      <Navbar />
-      <div className="min-h-screen">
+    <div className="space-y-16">
+      {/* <Navbar /> */}
+      <div className="">
         <Header />
       </div>
       <div>
@@ -20,13 +20,13 @@ export default function Landing() {
       <div className="mt-20">
         <TechStack />
       </div>
-      <div className="min-h-screen">
+      <div className="">
         <Projects />
       </div>
       <div>
         <Contact />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

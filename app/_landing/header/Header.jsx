@@ -9,7 +9,7 @@ const Header = () => {
       <Head_text />
 
       {/* 3 boxes */}
-      <div className="text-gray-400 mt-14 py-8 mx-2 md:mx-0">
+      <div className="text-gray-400 mt-5 md:mt-16">
         <Boxes />
       </div>
     </div>

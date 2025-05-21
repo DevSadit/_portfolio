@@ -115,7 +115,7 @@ export default function TechGrid() {
   // Render UI
   function renderTechSection(title, items) {
     return (
-      <div className="mb-4">
+      <div className="">
         <h3 className="text-lg md:text-xl font-semibold mb-3 text-gray-200 border-b border-gray-700 pb-2">
           {title}
         </h3>
