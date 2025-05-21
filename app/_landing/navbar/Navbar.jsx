@@ -99,9 +99,9 @@ const Navbar = () => {
 
   // Navigation links
   const navLinks = [
-    { name: "Projects", href: "#projects" },
+    { name: "Journey", href: "#education" },
     { name: "Techstack", href: "#techstack" },
-    { name: "Education", href: "#education" },
+    { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
 

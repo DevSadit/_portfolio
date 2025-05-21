@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Sh Ehesan",
   description: "A Web Developer",
-  colorScheme: "dark", // Add color scheme to metadata instead of using meta tag
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }) {
@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black dark:bg-black min-h-screen`}
+        suppressHydrationWarning
       >
         <ClientComponents>{children}</ClientComponents>
       </body>

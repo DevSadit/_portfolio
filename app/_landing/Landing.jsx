@@ -1,3 +1,4 @@
+import Contact from "./contact/Contact";
 import Footer from "./Footer/Footer";
 import Header from "./header/Header";
 import My_Journey from "./my_journey/My_Journey";
@@ -21,6 +22,9 @@ export default function Landing() {
       </div>
       <div className="min-h-screen">
         <Projects />
+      </div>
+      <div>
+        <Contact />
       </div>
       <Footer />
     </div>
