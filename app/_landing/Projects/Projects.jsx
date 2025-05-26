@@ -55,13 +55,13 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: "Travel Website",
+      title: "Fitflow - Fitness Website",
       image: "/projects/two.png",
-      category: "Travel",
+      category: "Health And Fitness",
       links: {
-        live: "https://travelworld.shuence.com/",
-        client: "https://github.com/shuence/TravelWorld?tab=readme-ov-file",
-        server: "https://github.com/shuence/TravelWorld?tab=readme-ov-file",
+        live: "https://fitness-tracker-d37b8.web.app/",
+        client: "https://github.com/DevSadit/FitFlow_Client",
+        server: "https://github.com/DevSadit/FitFlow_Server",
       },
     },
   ];
