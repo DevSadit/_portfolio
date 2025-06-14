@@ -64,6 +64,17 @@ export default function Projects() {
         server: "https://github.com/DevSadit/FitFlow_Server",
       },
     },
+    {
+      id: 3,
+      title: "Miss Beautifull",
+      image: "/projects/three.jpg",
+      category: "Romantic and FUn",
+      links: {
+        live: "https://devsadit.github.io/Fun_Romantic_Web/",
+        client: "https://github.com/DevSadit/Fun_Romantic_Web",
+        server: "https://github.com/DevSadit/Fun_Romantic_Web",
+      },
+    },
   ];
 
   return (
@@ -78,7 +89,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {projects.map((project) =>
             <Project_box
               key={project.id}

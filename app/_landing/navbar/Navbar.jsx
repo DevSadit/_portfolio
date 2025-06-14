@@ -98,7 +98,7 @@ const Navbar = () => {
 
         {/* Mobile Resume Button - Left of Hamburger */}
         <div className="flex items-center md:hidden">
-          <Link target="_blank" href="https://drive.google.com/file/d/14JYVcKOC_dup6pmT_2EclvvmIdwfUacw/view?usp=sharing" className="mr-3 bg-[#f9004d] px-3 py-1.5 rounded text-sm transition-transform duration-300 hover:shadow-md">
+          <Link target="_blank" href="https://drive.google.com/file/d/1HiSbEHcW4TG3rWsnymbxHcFcW48raaUE/view?usp=sharing" className="mr-3 bg-[#f9004d] px-3 py-1.5 rounded text-sm transition-transform duration-300 hover:shadow-md">
             Resume
           </Link>
           
@@ -157,7 +157,7 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link target="_blank" href="https://drive.google.com/file/d/14JYVcKOC_dup6pmT_2EclvvmIdwfUacw/view?usp=sharing" className="bg-[#f9004d] px-4 py-2 rounded text-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+          <Link target="_blank" href="https://drive.google.com/file/d/1HiSbEHcW4TG3rWsnymbxHcFcW48raaUE/view?usp=sharing" className="bg-[#f9004d] px-4 py-2 rounded text-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
             Resume
           </Link>
         </div>

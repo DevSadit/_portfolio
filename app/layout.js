@@ -4,6 +4,7 @@ import "./globals.css";
 import ClientComponents from "./_landing/_components/ClientComponents";
 import Navbar from "./_landing/navbar/Navbar";
 import Footer from "./_landing/Footer/Footer";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +20,10 @@ export const metadata = {
   title: "Sh Ehesan",
   description: "A Web Developer",
   colorScheme: "dark",
+  icons: {
+    url: "favicon.ico",
+    href: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
