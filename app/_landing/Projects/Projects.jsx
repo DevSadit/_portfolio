@@ -75,6 +75,17 @@ export default function Projects() {
         server: "https://github.com/DevSadit/Fun_Romantic_Web",
       },
     },
+    {
+      id: 4,
+      title: "Wedding Website",
+      image: "/projects/four.png",
+      category: "Wedding",
+      links: {
+        live: "https://ahsan-tumpa.netlify.app/",
+        client: "https://github.com/DevSadit/wedding-web-frontend",
+        server: "https://github.com/DevSadit/wedding-web-backend",
+      },
+    },
   ];
 
   return (
