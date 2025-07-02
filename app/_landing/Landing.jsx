@@ -10,8 +10,8 @@ import TechStack from "./TechStack/TechStack";
 export default function Landing() {
   return (
     <div className="space-y-16">
-      {/* <Navbar /> */}
-      <div className="">
+
+      <div>
         <Header />
       </div>
       <div>

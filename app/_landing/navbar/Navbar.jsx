@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -90,15 +89,15 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 px-4 py-3 md:py-4 bg-gray-900/30 backdrop-blur-[2px] shadow-sm transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
+        <Link href={"/"}>
           <h2 className="text-2xl md:text-3xl uppercase font-bold">
             <span className="text-[#f9004d]">E</span>hsan
           </h2>
-        </div>
+        </Link>
 
         {/* Mobile Resume Button - Left of Hamburger */}
         <div className="flex items-center md:hidden">
-          <Link target="_blank" href="https://drive.google.com/file/d/1HiSbEHcW4TG3rWsnymbxHcFcW48raaUE/view?usp=sharing" className="mr-3 bg-[#f9004d] px-3 py-1.5 rounded text-sm transition-transform duration-300 hover:shadow-md">
+          <Link target="_blank" download href={"/Resume/shahmiraj_ehesan_resume.pdf"} className="mr-3 bg-[#f9004d] px-3 py-1.5 rounded text-sm transition-transform duration-300 hover:shadow-md">
             Resume
           </Link>
           
@@ -157,7 +156,7 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link target="_blank" href="https://drive.google.com/file/d/1HiSbEHcW4TG3rWsnymbxHcFcW48raaUE/view?usp=sharing" className="bg-[#f9004d] px-4 py-2 rounded text-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+          <Link target="_blank" download href="/Resume/shahmiraj_ehesan_resume.pdf" className="bg-[#f9004d] px-4 py-2 rounded text-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
             Resume
           </Link>
         </div>
