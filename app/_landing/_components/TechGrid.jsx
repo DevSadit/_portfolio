@@ -32,6 +32,18 @@ export default function TechGrid() {
       image: "/Tech_svgs/javascript.svg",
     },
     {
+      name: "C",
+      category: "Frontend",
+      color: "from-blue-600 to-blue-700",
+      image: "/Tech_svgs/c.svg",
+    },
+    {
+      name: "C++",
+      category: "Frontend",
+      color: "from-sky-500 to-sky-600",
+      image: "/Tech_svgs/cpp.svg",
+    },
+    {
       name: "React",
       category: "Frontend",
       color: "from-cyan-400 to-blue-400",
