@@ -22,10 +22,10 @@ export default function Projects() {
     checkIfMobile();
 
     // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
+    window.addEventListener("resize", checkIfMobile);
 
     // Cleanup
-    return () => window.removeEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
   // Handle project interaction based on device type
@@ -43,14 +43,14 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Zenzep - Blogs Website",
-      image: "/projects/one.png",
-      category: "Blog",
+      title: "Career Abroad Mentors",
+      image: "/projects/five.png",
+      category: "Education",
       tagColor: "bg-gradient-to-r from-blue-400 to-cyan-400", // Blue gradient for "Trending"
       links: {
-        live: "https://blog-website-aef2b.web.app/",
-        client: "https://github.com/DevSadit/ZenZap_Client",
-        server: "https://github.com/DevSadit/ZenZap_Server",
+        live: "https://www.ahsansuny.com/",
+        client: "https://github.com/DevSadit/career-abroad",
+        server: "https://github.com/DevSadit/career-abroad",
       },
     },
     {
@@ -66,6 +66,18 @@ export default function Projects() {
     },
     {
       id: 3,
+      title: "Zenzep - Blogs Website",
+      image: "/projects/one.png",
+      category: "Blog",
+      tagColor: "bg-gradient-to-r from-blue-400 to-cyan-400", // Blue gradient for "Trending"
+      links: {
+        live: "https://blog-website-aef2b.web.app/",
+        client: "https://github.com/DevSadit/ZenZap_Client",
+        server: "https://github.com/DevSadit/ZenZap_Server",
+      },
+    },
+    {
+      id: 4,
       title: "Miss Beautifull",
       image: "/projects/three.jpg",
       category: "Romantic and FUn",
@@ -76,7 +88,7 @@ export default function Projects() {
       },
     },
     {
-      id: 4,
+      id: 5,
       title: "Wedding Website",
       image: "/projects/four.png",
       category: "Wedding",
@@ -96,12 +108,15 @@ export default function Projects() {
           <h2 className="text-3xl md:text-5xl font-bold mb-2 bg-gradient-to-r text-white bg-clip-text">
             My <span className="text-[#F9004D]">Projects</span>
           </h2>
-          <p className="text-base md:text-lg text-gray-400 max-w-xl mx-auto">Here are some of the projects I've worked on to sharpen my skills and solve real-world problems.</p>
+          <p className="text-base md:text-lg text-gray-400 max-w-xl mx-auto">
+            Here are some of the projects I've worked on to sharpen my skills
+            and solve real-world problems.
+          </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-          {projects.map((project) =>
+          {projects.map((project) => (
             <Project_box
               key={project.id}
               project={project}
@@ -110,7 +125,8 @@ export default function Projects() {
               isMobile={isMobile}
               handleProjectInteraction={handleProjectInteraction}
               setHoveredProject={setHoveredProject}
-            />)}
+            />
+          ))}
         </div>
       </div>
     </section>
