@@ -18,9 +18,9 @@ const Navbar = () => {
   // Handle navbar visibility on scroll
   useEffect(() => {
     const controlNavbar = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         const currentScrollY = window.scrollY;
-        
+
         if (currentScrollY > lastScrollY) {
           // Scrolling down
           setVisible(false);
@@ -28,15 +28,15 @@ const Navbar = () => {
           // Scrolling up
           setVisible(true);
         }
-        
+
         setLastScrollY(currentScrollY);
       }
     };
 
-    window.addEventListener('scroll', controlNavbar);
-    
+    window.addEventListener("scroll", controlNavbar);
+
     return () => {
-      window.removeEventListener('scroll', controlNavbar);
+      window.removeEventListener("scroll", controlNavbar);
     };
   }, [lastScrollY]);
 
@@ -56,8 +56,8 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        menuOpen && 
-        menuRef.current && 
+        menuOpen &&
+        menuRef.current &&
         !menuRef.current.contains(event.target) &&
         buttonRef.current &&
         !buttonRef.current.contains(event.target)
@@ -86,7 +86,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 px-4 py-3 md:py-4 bg-gray-900/30 backdrop-blur-[2px] shadow-sm transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 px-4 py-3 md:py-4 bg-gray-900/30 backdrop-blur-[2px] shadow-sm transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`}
+    >
       <div className="mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href={"/"}>
@@ -95,12 +97,17 @@ const Navbar = () => {
           </h2>
         </Link>
 
-        {/* Mobile Resume Button - Left of Hamburger */}
+        {/* Mobile Cv Button - Left of Hamburger */}
         <div className="flex items-center md:hidden">
-          <Link target="_blank" download href={"/Resume/shahmiraj_ehesan_resume.pdf"} className="mr-3 bg-[#f9004d] px-3 py-1.5 rounded text-sm transition-transform duration-300 hover:shadow-md">
-            Resume
+          <Link
+            target="_blank"
+            download
+            href={"/cv/sh_ehesan_cv.pdf"}
+            className="mr-3 bg-[#f9004d] px-3 py-1.5 rounded text-sm transition-transform duration-300 hover:shadow-md"
+          >
+            Download Cv
           </Link>
-          
+
           {/* Hamburger button - only visible on mobile */}
           <button
             ref={buttonRef}
@@ -156,8 +163,13 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link target="_blank" download href="/Resume/shahmiraj_ehesan_resume.pdf" className="bg-[#f9004d] px-4 py-2 rounded text-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
-            Resume
+          <Link
+            target="_blank"
+            download
+            href="/cv/sh_ehesan_cv.pdf"
+            className="bg-[#f9004d] px-4 py-2 rounded text-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+          >
+            Download Cv
           </Link>
         </div>
       </div>
@@ -179,20 +191,19 @@ const Navbar = () => {
               className={`
                 block px-5 py-2.5 text-base font-medium text-gray-300 hover:text-white 
                 hover:bg-[#f9004d]/20 rounded-md transition-all duration-300
-                ${menuOpen ? `animate-fadeIn` : ''}
+                ${menuOpen ? `animate-fadeIn` : ""}
               `}
-              style={{ 
+              style={{
                 animationDelay: `${index * 100}ms`,
-                transform: menuOpen ? 'translateY(0)' : 'translateY(20px)',
+                transform: menuOpen ? "translateY(0)" : "translateY(20px)",
                 opacity: menuOpen ? 1 : 0,
-                transition: `transform 400ms ease ${index * 50}ms, opacity 400ms ease ${index * 50}ms` 
+                transition: `transform 400ms ease ${index * 50}ms, opacity 400ms ease ${index * 50}ms`,
               }}
               onClick={() => setMenuOpen(false)}
             >
               {link.name}
             </Link>
           ))}
-        
         </div>
       </div>
     </nav>
