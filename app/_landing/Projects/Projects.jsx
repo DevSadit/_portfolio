@@ -66,7 +66,7 @@ export default function Projects() {
       },
     },
     {
-      id: 2,
+      id: 3,
       title: "Fitflow - Fitness Website",
       image: "/projects/two.png",
       category: "Health And Fitness",
@@ -77,7 +77,7 @@ export default function Projects() {
       },
     },
     {
-      id: 3,
+      id: 4,
       title: "Zenzep - Blogs Website",
       image: "/projects/one.png",
       category: "Blog",
@@ -89,7 +89,7 @@ export default function Projects() {
       },
     },
     {
-      id: 4,
+      id: 5,
       title: "Miss Beautifull",
       image: "/projects/three.jpg",
       category: "Romantic and FUn",
@@ -100,7 +100,7 @@ export default function Projects() {
       },
     },
     {
-      id: 5,
+      id: 6,
       title: "Wedding Website",
       image: "/projects/four.png",
       category: "Wedding",
