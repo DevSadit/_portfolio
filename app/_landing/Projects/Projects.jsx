@@ -43,6 +43,18 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: "ChandaBaz – Corruption Reporting Platform",
+      image: "/projects/chandabaz_banner.png",
+      category: "civic-tech",
+      tagColor: "bg-gradient-to-r from-blue-400 to-cyan-400", // Blue gradient for "Trending"
+      links: {
+        live: "https://chandabazz.netlify.app/",
+        client: "https://github.com/DevSadit/chandabaz-web-app",
+        server: "https://github.com/DevSadit/chandabaz-web-app",
+      },
+    },
+    {
+      id: 2,
       title: "Career Abroad Mentors",
       image: "/projects/five.png",
       category: "Education",
